@@ -1,0 +1,67 @@
+/**
+ * @file rps.cpp
+ * @author Takunda Mwinjilo
+ * @date   05/25/2018
+ * @version 2.0
+ *@brief <ENSC 251, Lab 2>
+ * @section Program that simulates a rock paper scissors game between the user and the computer
+ */
+// I declare that this assignment is my own work and that I have correctly
+// acknowledged the work of others.  I acknowledged that I have read and
+// following the Academic Honesty and Integrity related policies as
+// outlined in the syllabus.
+//
+// _____ TAKUNDA MWINJILO ____      _____05/28/2018______________
+//
+// ____ 301344066______
+
+
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+void checkWinner(int compChoice, int userChoice);
+void userChoice();
+void cptrChoice();
+
+
+int main()
+{
+
+
+
+
+
+
+}
+
+void checkWinner(int compChoice, int userChoice)
+{
+	int diff=compChoice-userChoice;
+	if (diff==1 || diff==-2)
+	{
+		cout<<"Computer Wins"<<endl;
+	}
+	else if (diff==0)
+	{
+		cout<<"There is no winner. PLAY AGAIN"<<endl;
+	}
+	else
+	{
+		cout<<"Congratulations!!! You win"<<endl;
+	}
+
+}
+
+void userChoice()
+{
+	cout<<"
+
+}
+
+void cptrChoice()
+{
+
+
+}
