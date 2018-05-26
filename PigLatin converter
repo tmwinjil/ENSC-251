@@ -1,0 +1,126 @@
+/**
+ * @file lab2b.cpp
+ * @author Takunda Mwinjilo
+ * @date   05/25/2018
+ * @version 2.0
+ *@brief <ENSC 251, Lab 2>
+ * @section Program that takes a users name as input and converts it to PigLatin form
+ */
+// I declare that this assignment is my own work and that I have correctly
+// acknowledged the work of others.  I acknowledged that I have read and
+// following the Academic Honesty and Integrity related policies as
+// outlined in the syllabus.
+//
+// _____ TAKUNDA MWINJILO ____      _____05/25/2018______________
+//
+// ____ 301344066______
+
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+string pigLatin(string name);
+string getName(int n);
+
+int main()
+{
+	string first="";
+	string last="";
+	string firstPig="";
+	string lastPig="";
+	
+	first=getName(1);
+	last=getName(2);
+	
+	firstPig=pigLatin(first);
+	lastPig=pigLatin(last);
+
+	cout<<"your PigLatin name is:  ";
+	cout<<firstPig<<"  "<<lastPig<<endl;
+
+	return 0;
+}
+
+/**
+*@brief This function converts the given lowercase name to PigLatin
+*@param initial takes the first initial of the name
+*@param pL is the final PigLatin version of the name
+*@param return string
+*/
+string pigLatin(string name)
+{
+	char initial=' ';
+	string pL;
+
+	initial=name[0];
+
+
+	if ( initial=='a' || initial=='e' || initial=='i' || initial=='o'|| initial=='u')
+	{	
+		pL=name+"way";
+		pL[0]=toupper(pL[0]);
+	}
+	else
+	{
+		pL=name.substr(2,name.length())+name[0]+"ay";  //concatenates the new order of the string
+		pL[0]=toupper(pL[0]);
+	}
+
+	return pL;
+
+}
+
+/**
+*@brief This function collects a name as input and verifies whether or not it is valid
+*@param input collects the user input string
+*@param added  used to output whether the 1st or 2nd name is required
+*@param check is a flag for a completely correct string, i.e none of the characters are numbers
+*@param n is for  1st or 2nd name
+*@param return string with the lowercase of the input
+*/
+string getName(int n)
+{
+	string input=" ";
+	string added="first";
+	int check=0;
+
+	if (n==2) 
+	{
+		added="last";
+	}
+
+	while (check==0)
+	{
+		cout<<"Please enter your "<<added<<" name"<<endl;
+		cin>>input;
+
+		//Condition to ensure that PigLatin version is possible
+		if (input.length()==1)
+		{
+			cout<<"Please enter a longer name"<<endl;
+			continue;
+		}
+
+		for (int i=0;i<input.length();i=i+1)
+		{
+			//loop individually checks if each element is a digit or a character
+			if(isdigit(input[i]))
+			{
+				cerr<<"This name is not valid. Please do not use numbers"<<endl<<endl;
+				break;
+			}
+
+			//If the loop made it past the last i,the whole word was checked for errors and found to be correct
+			if (i==input.length()-1)
+			{
+				check=1;
+			}	
+		}	
+	}
+	
+	std::transform(input.begin(),input.end(),input.begin(),::tolower);
+	return input;
+}
