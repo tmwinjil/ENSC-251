@@ -47,7 +47,8 @@ int main()
 
 /**
 *@brief
-*@param
+*@param name is the programmers entry for the name of the movie
+*@param age_restriction is the MPAA restriction on the movie
 */
 void Movie::createMovie(string name, string age_restriction)
 {
