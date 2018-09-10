@@ -36,8 +36,6 @@ char done; // test variable
 int arraySize = 0;
 int startFound = 0;
 int endFound = 0;
-//string filename="words.txt";
-//ifstream words (filename.c_str());
 ifstream words ("words.txt");
 
 vector <string> list;
